@@ -11,7 +11,7 @@ function cadastrar(event){
 
     fetch("https://santander-jwt-teste.herokuapp.com/api/usuarios",{
         method: "POST",
-        body: dados,
+        body: JSON.stringify(dados),
         headers:{
             'Content-Type':'application/json'
         }
