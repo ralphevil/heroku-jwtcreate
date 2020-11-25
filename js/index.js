@@ -1,18 +1,25 @@
-var button = document.getElementById("logar");
+var button = document.getElementById("cadastrar");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 
 function cadastrar(event){
     event.preventDefault();
     const dados = {
-        "login":username.nodeValue,
+        "login":username.value,
         "senha":password.value
     }
 
-    fetch("",{
+    fetch("https://santander-jwt-teste.herokuapp.com/api/usuarios",{
         method: "POST",
+        body: dados,
         headers:{
             'Content-Type':'application/json'
+        }
+    }).then(response=>{
+        if(response.ok){
+            alert("Cadastrado com Sucesso!")
+        }else{
+            alert("Falha ao Cadastrar!")
         }
     })
 }
